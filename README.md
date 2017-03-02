@@ -1,5 +1,7 @@
 # Yet Another Music Site
 
+[![Build Status](https://travis-ci.com/tbille/yams.svg?token=ugzKv1u9GPfZ6XxywWez&branch=master)](https://travis-ci.com/tbille/yams)
+
 «Yams» (Yet Another Music Site) est un site permettant de fédérer une communauté de passionnés de musique. Le site Yams est composé des grands domaines fonctionnels suivants :
 
 * La gestion des membres de la communauté : 
