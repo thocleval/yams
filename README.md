@@ -1,5 +1,7 @@
 # Yet Another Music Site
 
+[![Build Status](https://travis-ci.com/tbille/yams.svg?token=ugzKv1u9GPfZ6XxywWez&branch=master)](https://travis-ci.com/tbille/yams)
+
 «Yams» (Yet Another Music Site) est un site permettant de fédérer une communauté de passionnés de musique. Le site Yams est composé des grands domaines fonctionnels suivants :
 
 * La gestion des membres de la communauté : 
@@ -21,6 +23,7 @@
   * Les membres de la communauté peuvent proposer de nouveaux artistes/albums/musiques, 
   * Web radio by style
   
-* Developpers Team :
-   * Thomas Bille
-   * Clément Chaumel
+ ## Developpers Team :
+  * Thomas Bille
+  * Clément Chaumel
+  * Valentin Chevalier
