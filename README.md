@@ -21,5 +21,6 @@
   * Les membres de la communauté peuvent proposer de nouveaux artistes/albums/musiques, 
   * Web radio by style
   
- Developpers Team :
+* Developpers Team :
    * Thomas Bille
+   * Clément Chaumel
