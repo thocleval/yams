@@ -24,6 +24,9 @@
   * Web radio by style
   
  ## Developpers Team :
-   * Thomas Bille
-   * Adnane Keheli 
-   * Valentin Chevalier
+
+  * Thomas Bille
+  * Clément Chaumel
+  * Valentin Chevalier
+  * Adnane Keheli
+  
