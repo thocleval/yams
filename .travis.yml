@@ -1,0 +1,32 @@
+dist: trusty
+os:
+  - linux
+sudo: required
+language: java
+jdk:
+    - oraclejdk8
+env:
+  - TRAVIS_NODE_VERSION="7"
+before_install:
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sudo apt-get update
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+before_script:
+  - rm -rf ~/.nvm && git clone https://github.com/creationix/nvm.git ~/.nvm && (cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`) && source ~/.nvm/nvm.sh && nvm install $TRAVIS_NODE_VERSION
+  - npm i -g @angular/cli
+  - cd frontend
+  - npm install
+  - cd ../backend
+  - mvn install
+  - cd ..
+script:
+  - cd frontend
+  - ng lint
+  - ng test --watch=false
+  - ng e2e
+  - cd ../backend
+  - mvn test
