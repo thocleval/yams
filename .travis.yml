@@ -1,12 +1,13 @@
 dist: trusty
-os:
-  - linux
 sudo: required
 language: java
 jdk:
-    - oraclejdk8
+  - oraclejdk8
+branches:
+  only:
+    - master
 env:
-  - TRAVIS_NODE_VERSION="7"
+  - TRAVIS_NODE_VERSION="7.0.0"
 before_install:
   - export CHROME_BIN=/usr/bin/google-chrome
   - export DISPLAY=:99.0
@@ -20,8 +21,6 @@ before_script:
   - npm i -g @angular/cli
   - cd frontend
   - npm install
-  - cd ../backend
-  - mvn install
   - cd ..
 script:
   - cd frontend
@@ -30,3 +29,12 @@ script:
   - ng e2e
   - cd ../backend
   - mvn test
+  - cd ..
+deploy:
+  provider: heroku
+  app: yams-m2dl
+  on:
+    branch: master
+  api_key:
+    secure: $HEROKU_API_KEY
+  run: "mvn clean heroku:deploy"

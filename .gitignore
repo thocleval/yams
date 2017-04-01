@@ -241,3 +241,5 @@ hs_err_pid*
 # Mac OS
 .dstore
 .DS_Store
+
+frontend/node
