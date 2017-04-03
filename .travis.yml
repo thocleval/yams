@@ -28,8 +28,10 @@ script:
   - ng test --watch=false
   - ng e2e
   - cd ../backend
-  - mvn test
+  - mvn cobertura:cobertura
   - cd ..
+after_script:
+  - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
 deploy:
   provider: heroku
   app: yams-m2dl
@@ -37,4 +39,3 @@ deploy:
     branch: master
   api_key:
     secure: $HEROKU_API_KEY
-  run: "mvn clean heroku:deploy"
