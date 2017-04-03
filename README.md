@@ -23,8 +23,11 @@
 * *[Facultatif]*
   * Les membres de la communauté peuvent proposer de nouveaux artistes/albums/musiques, 
   * Web radio by style
-  
- ## Developpers Team :
+
+##
+  * Sonarqube : https://sonarqube.com/dashboard?id=com.ups.yams%3Abackend
+
+## Developpers Team :
 
   * Thomas Bille
   * Clément Chaumel
