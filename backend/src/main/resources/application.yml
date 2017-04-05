@@ -1,0 +1,29 @@
+spring:
+  profiles: development
+  data:
+    mongodb:
+      database: yams
+      host: localhost
+      port: 27017
+
+---
+
+spring:
+  profiles: test
+  data:
+    mongodb:
+      database: yams-test
+      host: localhost
+      port: 27017
+
+---
+
+spring:
+  profiles: production
+  data:
+    mongodb:
+      database: ${MONGO_DATABASE}
+      port: ${MONGO_PORT}
+      username: ${MONGO_USERNAME}
+      password: ${MONGO_PASSWORD}
+      host: ${MONGO_HOST}

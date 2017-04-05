@@ -37,7 +37,7 @@
                 <configuration>
                     <appName>yams-m2dl</appName>
                     <processTypes>
-                        <web>java -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod</web>
+                        <web>java -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=production</web>
                     </processTypes>
                 </configuration>
             </plugin>
