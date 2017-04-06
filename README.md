@@ -24,7 +24,23 @@
   * Les membres de la communauté peuvent proposer de nouveaux artistes/albums/musiques, 
   * Web radio by style
 
-##
+## Requirements
+
+* Mongodb
+* Maven
+* Node v7.0.0
+* For frontend developer: @angular/cli (`npm install -g @angular/cli`)
+
+## Installer le projet
+
+* `mvn clean install`
+* `java -jar backend/target/backend-0.0.1-SNAPSHOT.jar --spring.profiles.active=<PROFILE>`
+    * development
+    * test
+    * production
+
+## Some quality
+
   * Sonarqube : https://sonarqube.com/dashboard?id=com.ups.yams%3Abackend
 
 ## Developpers Team :
