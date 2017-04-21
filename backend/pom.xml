@@ -46,7 +46,13 @@
 		<dependency>
 			<groupId>org.spockframework</groupId>
 			<artifactId>spock-spring</artifactId>
-			<version>1.1-groovy-2.4-rc-4</version>
+			<version>1.0-groovy-2.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib-nodep</artifactId>
+			<version>3.2.5</version>
 		</dependency>
 
 		<dependency>
