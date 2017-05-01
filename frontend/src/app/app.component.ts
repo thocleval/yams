@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'App is beautiful';
+  isDarkTheme: boolean = false;
+  lastDialogResult: string;
+
+  foods: any[] = [
+    {name: 'Pizza', rating: 'Excellent'},
+    {name: 'Burritos', rating: 'Great'},
+    {name: 'French fries', rating: 'Pretty good'},
+  ];
+
+  progress: number = 0;
+
+  constructor() {
+  }
+
+  openDialog() {
+  }
 }
