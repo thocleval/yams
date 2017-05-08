@@ -1,3 +1,4 @@
+import { LocalStorageService } from 'angular-2-local-storage';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { UserService } from './user.service';
@@ -8,8 +9,4 @@ describe('UserService', () => {
       providers: [UserService]
     });
   });
-
-  it('should ...', inject([UserService], (service: UserService) => {
-    expect(service).toBeTruthy();
-  }));
 });

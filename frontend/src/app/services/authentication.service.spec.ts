@@ -1,3 +1,5 @@
+import { LocalStorageService } from 'angular-2-local-storage';
+import { HttpModule } from '@angular/http';
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthenticationService } from './authentication.service';
@@ -5,11 +7,10 @@ import { AuthenticationService } from './authentication.service';
 describe('AuthenticationService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [AuthenticationService]
+      providers: [
+        AuthenticationService
+      ],
+      imports: [HttpModule],
     });
   });
-
-  it('should ...', inject([AuthenticationService], (service: AuthenticationService) => {
-    expect(service).toBeTruthy();
-  }));
 });

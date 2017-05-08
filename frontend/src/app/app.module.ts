@@ -1,46 +1,36 @@
-import { RouterModule } from '@angular/router';
-import { RegisterComponent } from './authentication/register/register.component';
-import { LoginComponent } from './authentication/login/login.component';
-import { HomeComponent } from './home/home.component';
-
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { APP_BASE_HREF } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
-import { LocalStorageModule } from 'angular-2-local-storage';
-
-import { CommonsModule } from './commons/commons.module';
-
 import { AppComponent } from './app.component';
+import { routes } from './app.routing';
 
-import { appRoutes } from './app.routing';
+import { AuthenticationModule } from './authentication/authentication.module';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { SharedModule } from './shared/shared.module';
 
-import { AuthGuard } from './guards/auth.guard';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent
-  ],
   imports: [
     BrowserModule,
-    FormsModule,
     HttpModule,
-    MaterialModule,
-    LocalStorageModule.withConfig({
-      prefix: 'yams',
-      storageType: 'localStorage',
-    }),
-    RouterModule.forRoot(appRoutes),
-    CommonsModule
+    RouterModule.forRoot(routes),
+    AuthenticationModule,
+    DashboardModule,
+    SharedModule.forRoot(),
+    NgbModule.forRoot()
   ],
-  providers: [
-    AuthGuard
-  ],
+  declarations: [AppComponent],
+  providers: [{
+    provide: APP_BASE_HREF,
+    useValue: '/'
+  }],
   bootstrap: [AppComponent]
+
 })
+
 export class AppModule { }

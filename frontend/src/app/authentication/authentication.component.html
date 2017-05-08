@@ -1,0 +1,67 @@
+<div class="login-page animate">
+  <div class="row d-flex justify-content-center align-items-center">
+    <div class="col-lg-5">
+      <img src="assets/images/yams.png" class="logo" />
+      <h1 class="mb-5">Découvrez <strong>votre</strong> musique</h1>
+
+      <ngb-tabset>
+        <ngb-tab title="Connexion">
+          <ng-template ngbTabContent>
+            <form (submit)="onLogin()" #loginForm="ngForm">
+              <div class="form-content">
+                <div class="form-group">
+                  <input type="text" class="form-control input-underline input-lg" placeholder="Email" [(ngModel)]="model.email" name="email" required #email="ngModel" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                  <div [hidden]="email.valid || email.pristine" class="error">
+                    L'email est obligatoire
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input-underline input-lg" placeholder="Mot de passe" [(ngModel)]="model.password" name="password" required #password="ngModel">
+                  <div [hidden]="password.valid || loginForm.submitted" class="error">
+                    Le mot de passe est obligatoire
+                  </div>
+                </div>
+                <label class="custom-control custom-checkbox mb-2 mr-sm-2 mb-sm-0">
+                  <input type="checkbox" class="custom-control-input" [(ngModel)]="model.remember" name="remember">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Se souvenir de moi</span>
+                </label>
+              </div>
+              <button type="submit" class="btn rounded-btn" >Se connecter</button>
+            </form>
+          </ng-template>
+        </ngb-tab>
+        <ngb-tab title="Inscription">
+          <ng-template ngbTabContent>
+
+            <form (submit)="onRegister()" #registerForm="ngForm">
+              <div class="form-content">
+                <div class="form-group">
+                  <input type="email" class="form-control input-underline input-lg" placeholder="Email" [(ngModel)]="model.email" required #email="ngModel" name="email">
+                  <div [hidden]="email.valid || email.pristine" class="error">
+                    L'email est obligatoire
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input-underline input-lg" placeholder="Mot de passe" [(ngModel)]="model.password" name="password" required #password="ngModel">
+                  <div [hidden]="password.valid || password.pristine" class="error">
+                    Le mot de passe est obligatoire
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="password" class="form-control input-underline input-lg" placeholder="Répetez le mot de passe" [(ngModel)]="model.repeatPassword" name="repeatPassword" required>
+                  <div [hidden]="password.valid || password.pristine" class="error">
+                    Le mot de passe est obligatoire
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn rounded-btn">S'inscrire</button>
+            </form>
+          </ng-template>
+        </ngb-tab>
+      </ngb-tabset>
+
+
+    </div>
+  </div>
+</div>

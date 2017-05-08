@@ -1,26 +1,18 @@
 import { Component } from '@angular/core';
+// import { Config } from './shared/index';
 
+/**
+ * This class represents the main application component. Within the @Routes annotation is the configuration of the
+ * applications routes, configuring the paths for the lazy loaded components
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
-  title = 'App is beautiful';
-  isDarkTheme: boolean = false;
-  lastDialogResult: string;
-
-  foods: any[] = [
-    {name: 'Pizza', rating: 'Excellent'},
-    {name: 'Burritos', rating: 'Great'},
-    {name: 'French fries', rating: 'Pretty good'},
-  ];
-
-  progress: number = 0;
-
   constructor() {
-  }
-
-  openDialog() {
+    // console.log('Environment config', Config);
   }
 }
