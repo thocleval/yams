@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 
 export class SidebarComponent {
-  showMenu: string = '';
+  showMenu = '';
   addExpandClass(element: any) {
     if (element === this.showMenu) {
       this.showMenu = '0';
