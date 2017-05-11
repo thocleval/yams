@@ -17,18 +17,20 @@ class ArtistTest extends Specification {
     }
 
     @Unroll
-    void "test la validite d'un artiste"(String name, String biography, String urlImage) {
+    void "test la validite d'un artiste"(String id, String name, String biography, String urlImage) {
 
         given: "un artiste"
-        Artist artist = new Artist(name: name, biography: biography, url: urlImage)
+        Artist artist = new Artist(id: id, name: name, biography: biography, url: urlImage)
 
         expect: "l'artiste est valide"
         validator.validate(artist).empty
 
         where:
-        name    | biography     | urlImage
-        "name1" | "bio 1"       | null
-        "name2" | "bio 2"       | "url"
+        id      | name    | biography     | urlImage
+        "id1"   |"name1" | "bio 1"       | null
+        null    | "name2" | "bio 2"       | "url"
+        "id2"   | "name1" | "bio 1"       | null
+        null    | "name2" | "bio 2"       | "url"
 
     }
 
@@ -54,17 +56,18 @@ class ArtistTest extends Specification {
 
     }
 
-    def "test artist getters"(String name, String biography, String urlImage) {
+    def "test artist getters"(String id, String name, String biography, String urlImage) {
         given: "un artiste"
-        Artist artist = new Artist(name: name, biography: biography, url: urlImage)
+        Artist artist = new Artist(id: id, name: name, biography: biography, url: urlImage)
 
         expect: "les getters de l'artiste renvoient les bonnes valeurs"
+        artist.getId().equals(id)
         artist.getBiography().equals(biography)
         artist.getName().equals(name)
         artist.getUrl().equals(urlImage)
 
         where:
-        name    | biography     | urlImage
-        "name2" | "bio 2"       | "url"
+        id      | name    | biography     | urlImage
+        "id"    | "name2" | "bio 2"       | "url"
     }
 }
