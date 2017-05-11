@@ -1,12 +1,17 @@
 package com.ups.yams.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 
-@Document(collection = "users")
+@Document(collection = "artist")
 public class Artist {
+
+    @Id
+    private String id;
+
     @NotNull
     @NotEmpty
     private String name;
@@ -16,6 +21,10 @@ public class Artist {
     private String biography;
 
     private String url;
+
+    public String getId() { return id; }
+
+    public void setId(String id) { this.id = id; }
 
     public String getName() {
         return name;
