@@ -1,16 +1,13 @@
 @import '~bootstrap/scss/variables';
 
-
+// spacings
 $nav-width: 20rem;
-$yams-blue: #2c3e50;
+$wrapper-width: 900px;
 
-// // TABS
-// $nav-tabs-border-color:                       #ddd !default;
-// $nav-tabs-border-width:                       $border-width !default;
-// $nav-tabs-border-radius:                      $border-radius !default;
-// $nav-tabs-link-hover-border-color:            $gray-lighter !default;
-// $nav-tabs-active-link-hover-color:            $gray !default;
-// $nav-tabs-active-link-hover-bg:               $body-bg !default;
-// $nav-tabs-active-link-hover-border-color:     #ddd !default;
-// $nav-tabs-justified-link-border-color:        #ddd !default;
-// $nav-tabs-justified-active-link-border-color: $body-bg !default;
+// colors
+$true-white: #fff;
+$true-black: #000;
+$gray: #292b2c;
+$light-gray: #909598;
+$yams-light-blue: #32bea6;
+$yams-blue: #2c3e50;

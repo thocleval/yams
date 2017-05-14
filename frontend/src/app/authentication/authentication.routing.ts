@@ -3,7 +3,7 @@ import { AuthenticationComponent } from './authentication.component';
 
 export const AuthenticationRoutes: Route[] = [
   {
-    path: '',
+    path: 'login',
     component: AuthenticationComponent
   }
 ];

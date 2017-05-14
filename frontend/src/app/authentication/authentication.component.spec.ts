@@ -1,3 +1,6 @@
+import { CoreModule } from './../core/core.module';
+import { DummyComponent } from './../core/dummy/dummy.component';
+import { RouterTestingModule } from '@angular/router/testing';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -15,7 +18,11 @@ describe('AuthenticationComponent', () => {
       declarations: [AuthenticationComponent],
       imports: [
         CommonModule,
-        RouterModule,
+        RouterTestingModule.withRoutes([{
+          path: '',
+          component: DummyComponent
+        }]),
+        CoreModule,
         FormsModule,
         NgbModule
       ]

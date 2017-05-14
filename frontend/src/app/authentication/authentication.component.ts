@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbTabsetConfig, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -25,7 +26,7 @@ export class AuthenticationComponent implements OnInit {
     this.newMessage = '';
   }
 
-  constructor(config: NgbTabsetConfig) {
+  constructor(config: NgbTabsetConfig, private router: Router) {
     // customize default values of tabsets used by this component tree
     config.justify = 'center';
     config.type = 'pills';
@@ -36,10 +37,12 @@ export class AuthenticationComponent implements OnInit {
 
   onLogin() {
     console.log(this.model);
+    this.router.navigate(['']);
   }
 
   onRegister() {
     console.log(this.model);
+    this.router.navigate(['']);
   }
 
 }

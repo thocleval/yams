@@ -1,0 +1,25 @@
+<div *ngIf="tracks.length !== 0">
+  <table class="table table-striped" >
+    <tbody>
+      <tr *ngFor="let track of tracks">
+        <th scope="row" class="number">{{track.number}}</th>
+        <td class="name">{{track.name}}</td>
+        <td class="duration">{{track.duration | trackDuration}}</td>
+        <td class="actions">
+          <button class="btn-action played"
+            [ngClass]="{'active': track.played}"
+            placement="top"
+            [ngbTooltip]="track.played ? 'Marquer comme non écouté' : 'Marquer comme écouté'"
+            (click)="onPlayedClick(track)">
+            <i class="fa fa-play-circle fa-2x"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="tracks.length === 0">
+  <p>Il n'y a actuellement aucun morceau dans cet album</p>
+</div>
+

@@ -1,0 +1,9 @@
+@import '../../../styles/custom-variables';
+
+.album-cover {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: block;
+}

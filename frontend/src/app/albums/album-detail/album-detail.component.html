@@ -1,0 +1,26 @@
+<app-page-header *ngIf="album" [backgroundImage]="album.coverPicture">
+  <img class="album-cover mr-5" [src]="album.coverPicture" alt="{{album.name}}'s picture'">
+  <div class="text">
+    <h1 class="display-3">{{album.name}}</h1>
+    <p>Par <a [routerLink]="['/artists', album.artist.id]">{{album.artist.name}}</a></p>
+    <p class="like">
+      <button class="btn btn-primary mr-2"
+        placement="bottom"
+        ngbTooltip="Marquer tous les titres comme écoutés"
+        (click)="onPlayedClick()">
+        <i class="fa fa-play"></i>
+      </button>
+      <button class="btn btn-primary mr-2"
+        placement="bottom"
+        ngbTooltip="Ajouter à mes favoris"
+        (click)="onFavClick()">
+        <i class="fa fa-heart"></i>
+      </button>
+      <small>Aimé par {{album.likeCount}} personnes</small>
+    </p>
+  </div>
+</app-page-header>
+
+<div class="wrapper albums-container animate" *ngIf="album">
+  <app-track-list [tracks]="album.tracks"></app-track-list>
+</div>

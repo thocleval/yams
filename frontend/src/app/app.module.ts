@@ -1,17 +1,22 @@
+import { AlbumsModule } from './albums/albums.module';
+import { ArtistsModule } from './artists/artists.module';
+import { HomeModule } from './home/home.module';
+import { ErrorModule } from './errors/errors.module';
+import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { APP_BASE_HREF } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
-import { AppComponent } from './app.component';
-import { routes } from './app.routing';
-
-import { AuthenticationModule } from './authentication/authentication.module';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { SharedModule } from './shared/shared.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { AuthenticationComponent } from './authentication/authentication.component';
+
+import { AppComponent } from './app.component';
+
+import { AuthenticationModule } from './authentication/authentication.module';
+import { SharedModule } from './shared/shared.module';
+
+import { routes } from './app.routing';
 
 
 @NgModule({
@@ -19,10 +24,14 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    AuthenticationModule,
-    DashboardModule,
+    NgbModule.forRoot(),
     SharedModule.forRoot(),
-    NgbModule.forRoot()
+    CoreModule,
+    AuthenticationModule,
+    ErrorModule,
+    HomeModule,
+    ArtistsModule,
+    AlbumsModule,
   ],
   declarations: [AppComponent],
   providers: [{

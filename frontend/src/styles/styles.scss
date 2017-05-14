@@ -2,11 +2,13 @@
 @import '~bootstrap/scss/bootstrap-grid.scss';
 @import '~bootstrap/scss/bootstrap.scss';
 
+@import '~font-awesome/css/font-awesome.css';
+
 
 .main-container{
 	margin-left: $nav-width;
 	margin-top : 0px;
-	padding:10px;
+	// padding:10px;
 	overflow: hidden;
 	background: #ECF0F1;
 }
@@ -35,23 +37,13 @@ body {
 			}
 		}
 	}
-	.carousel {
-	    .carousel-control{
-	        cursor: pointer;
-	    }
-	    .carousel-inner {
-	        .fa-chevron-left:before {
-	            position: absolute;
-	            top: 47%;
-	            left : 30px;
-	        }
-	        .fa-chevron-right:before {
-	            position: absolute;
-	            top: 47%;
-	            right : 30px;
-	        }
-	    }
-	}
+}
+
+.wrapper {
+  max-width: $wrapper-width;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .animate {
@@ -115,5 +107,41 @@ body {
         -webkit-transform: scale(1.0);
         transform: scale(1.0);
     }
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-item.show .nav-link {
+  background-color: $yams-light-blue;
+}
+
+a {
+  color: $yams-light-blue;
+
+  &:focus,
+  &:hover {
+    color: rgba($yams-light-blue, .8);
+  }
+}
+
+.btn-primary {
+  color: $true-white;
+  background-color: $yams-light-blue;
+  border-color: $yams-light-blue;
+  &:hover,
+  &:focus {
+    color: $true-white;
+    background-color: rgba($yams-light-blue, .7);
+    border-color: rgba($yams-light-blue, .9);
+  }
+}
+
+.btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: $true-white;
+  background-color: rgba($yams-light-blue, .7);
+  border-color: rgba($yams-light-blue, .9);
+}
+
+.card {
+  margin-bottom: 20px;
 }
 

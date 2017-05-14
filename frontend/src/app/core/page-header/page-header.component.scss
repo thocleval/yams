@@ -1,0 +1,42 @@
+@import '../../../styles/custom-variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.page-header {
+  position: relative;
+  padding: 50px 0;
+  margin-bottom: 40px;
+
+  .background-image {
+    background-color: rgba($true-black, .6);
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(40%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 2;
+    color: $true-white;
+    display: flex;
+    max-width: $wrapper-width;
+    margin: auto;
+    padding: 0 20px;
+    align-items: center;
+
+    .text {
+      flex: 1;
+      margin-right: 3rem;
+    }
+
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}

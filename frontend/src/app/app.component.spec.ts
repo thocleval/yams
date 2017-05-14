@@ -1,7 +1,11 @@
+import { AlbumsModule } from './albums/albums.module';
+import { ArtistsModule } from './artists/artists.module';
+import { HomeModule } from './home/home.module';
+import { ErrorModule } from './errors/errors.module';
+import { CoreModule } from './core/core.module';
 import { APP_BASE_HREF } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthenticationModule } from './authentication/authentication.module';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -21,10 +25,14 @@ describe('AppComponent', () => {
         BrowserModule,
         HttpModule,
         RouterModule.forRoot(routes),
-        AuthenticationModule,
-        DashboardModule,
+        NgbModule.forRoot(),
         SharedModule.forRoot(),
-        NgbModule.forRoot()
+        CoreModule,
+        AuthenticationModule,
+        ErrorModule,
+        HomeModule,
+        ArtistsModule,
+        AlbumsModule,
       ],
       providers: [{
         provide: APP_BASE_HREF,

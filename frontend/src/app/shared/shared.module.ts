@@ -1,3 +1,4 @@
+import { TruncatePipe } from './truncate.pipe';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,16 +9,26 @@ import { RouterModule } from '@angular/router';
 */
 
 @NgModule({
-    imports: [CommonModule, RouterModule],
-    declarations: [],
-    exports: [CommonModule, FormsModule, RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule,
+  ],
+  declarations: [
+    TruncatePipe,
+  ],
+  exports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    TruncatePipe,
+  ]
 })
 
 export class SharedModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: SharedModule,
-            providers: []
-        };
-    }
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: []
+    };
+  }
 }

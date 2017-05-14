@@ -1,0 +1,10 @@
+<app-page-header backgroundImage="https://source.unsplash.com/dBWvUqBoOU8">
+  <div class="text mr-10">
+    <h1 class="display-3">Artistes</h1>
+    <p>Découvrez tous les artistes</p>
+  </div>
+</app-page-header>
+
+<div class="wrapper albums-container" *ngIf="artists">
+  <app-artist-list [artists]="artists"></app-artist-list>
+</div>

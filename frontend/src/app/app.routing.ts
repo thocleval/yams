@@ -1,12 +1,14 @@
-import { Routes } from '@angular/router';
-
+import { HomeRoutes } from './home/home.routing';
+import { ArtistsRoutes } from './artists/artists.routing';
+import { AlbumsRoutes } from './albums/albums.routing';
 import { AuthenticationRoutes } from './authentication/authentication.routing';
-import { DashboardRoutes } from './dashboard/dashboard.routing';
-
-import { AuthenticationComponent } from './authentication/authentication.component';
+import { ErrorsRoutes } from './errors/errors.routing';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   ...AuthenticationRoutes,
-  ...DashboardRoutes,
-  { path: '**', component: AuthenticationComponent }
+  ...ErrorsRoutes,
+  ...AlbumsRoutes,
+  ...ArtistsRoutes,
+  ...HomeRoutes,
 ];

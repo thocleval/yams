@@ -1,0 +1,19 @@
+@import '../../../styles/custom-variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+.text {
+  flex: 1;
+}
+
+.artist-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid $yams-light-blue;
+
+ @include media-breakpoint-down(sm) {
+    order: -1;
+  }
+}
+

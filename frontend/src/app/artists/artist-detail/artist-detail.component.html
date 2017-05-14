@@ -1,0 +1,13 @@
+<app-page-header *ngIf="artist" [backgroundImage]="artist.cover">
+  <div class="text mr-5">
+    <h1 class="display-3">{{artist.name}}</h1>
+    <p class="small" *ngIf="artist.likeCount > 0"><button class="btn btn-primary mr-2" alt="Ajouter à mes favoris" data-toggle="tooltip" data-placement="bottom" title="Ajouter à mes favoris"><i class="fa fa-heart"></i></button> Aimé par {{artist.likeCount}} personnes</p>
+    <p>{{artist.biography}}</p>
+  </div>
+  <img class="artist-avatar" [src]="artist.avatar" alt="{{artist.name}}'s picture'">
+</app-page-header>
+
+<div class="wrapper albums-container animate" *ngIf="artist">
+  <h3 class="section-title mb-4">Albums</h3>
+  <app-album-list [albums]="artist.albums"></app-album-list>
+</div>

@@ -1,0 +1,23 @@
+@import '../../../styles/custom-variables';
+
+:host {
+  display: block;
+  z-index: 1000;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20px;
+  text-align: center;
+
+  a {
+    color: $yams-light-blue;
+    display: flex;
+    align-items: center;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: rgba($yams-light-blue, .8);
+    }
+  }
+}
