@@ -55,7 +55,7 @@ class NationalityTest extends Specification {
 
         expect: "les getters de l'nationality renvoient les bonnes valeurs"
         nationality.getName().equals(name)
-        nationality.getDescription().equals(flag)
+        nationality.getFlag().equals(flag)
 
         where:
         name    | flag
