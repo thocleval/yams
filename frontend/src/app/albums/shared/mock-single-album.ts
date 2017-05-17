@@ -35,9 +35,11 @@ export const MOCK_SINGLE_ALBUM: Album = {
   'artist': {
     'id': '59146247225c3ca77f8e868c',
     'name': 'David Guetta',
-    'biography': 'Eiusmod adipisicing anim quis sint Lorem veniam anim laborum elit quis. Consequat deserunt proident voluptate cillum adipisicing. Do aute ad laborum mollit. Ut elit et proident laborum id culpa dolor.',
+    'biography': 'Eiusmod adipisicing anim quis sint Lorem veniam anim laborum elit quis. Consequat deserunt' +
+                 ' proident voluptate cillum adipisicing. Do aute ad laborum mollit. Ut elit et proident laborum id culpa dolor.',
     'likeCount': 30,
-    'avatar': 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/David_Guetta_2013-04-12_001.jpg/260px-David_Guetta_2013-04-12_001.jpg',
+    'avatar': 'https://upload.wikimedia.org/wikipedia/commons/thumb/' +
+                 '3/33/David_Guetta_2013-04-12_001.jpg/260px-David_Guetta_2013-04-12_001.jpg',
     'cover': 'https://www.hitradio.ma/media/uploads/actualites/9c0f4a02e5.jpg',
   },
   'styles': [

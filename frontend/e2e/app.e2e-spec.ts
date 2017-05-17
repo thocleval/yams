@@ -6,9 +6,4 @@ describe('frontend App', () => {
   beforeEach(() => {
     page = new FrontendPage();
   });
-
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
-  });
 });
