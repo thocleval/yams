@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<app-github></app-github>
+<app-sidebar></app-sidebar>
+<section class="main-container" [ngClass]="{sidebarPushRight: isActive}">
+	<router-outlet></router-outlet>
+</section>

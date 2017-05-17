@@ -1,0 +1,45 @@
+<div class="menu-body">
+  <ul class="nav flex-column sidenav">
+    <li class="nav-item">
+      <a [routerLink]="['home']" class="">
+          <img src="assets/images/yams.png" class="logo mx-auto my-4"/>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['home']" class="nav-link">
+          <i class="menu-icon fa fa-home"></i>
+          <span>Home</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a [routerLink]="['artists']" class="nav-link">
+          <i class="menu-icon fa fa-music"></i>
+          <span>Artistes</span>
+      </a>
+    </li>
+    <!--<li class="nav-item" [ngClass]="{'expand' : showMenu === 'pages' }">
+      <a (click)="addExpandClass('pages')" class="nav-link">
+        <i class="menu-icon fa fa-chevron-circle-down"></i>
+        <span>Pages</span>
+      </a>
+      <ul class="submenu">
+        <li class="nav-item">
+          <a [routerLink]="['components']" class="nav-link">
+            <span>Components</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['blankpage']" class="nav-link">
+            <span>Blank Page</span>
+          </a>
+        </li>
+      </ul>
+    </li>-->
+    <li class="nav-item">
+      <a [routerLink]="['login']" class="nav-link">
+        <i class="menu-icon fa fa-sign-out"></i>
+        <span>Logout</span>
+      </a>
+    </li>
+  </ul>
+</div>

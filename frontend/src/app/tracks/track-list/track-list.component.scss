@@ -1,0 +1,48 @@
+@import '../../../styles/custom-variables';
+
+.number {
+  text-align: center;
+  width: 50px;
+}
+
+.name {
+  overflow:hidden;
+  max-width:20%;
+  white-space:nowrap;
+}
+
+.duration {
+  text-align: right;
+  width: 100px;
+}
+
+
+.btn-action {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+
+  color: $light-gray;
+
+  &.active {
+    color: $yams-light-blue;
+  }
+}
+
+.actions {
+  width: 10px;
+  white-space: nowrap;
+}
+
+
+
+.table {
+  td,
+  th {
+    vertical-align: middle;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+  }
+}

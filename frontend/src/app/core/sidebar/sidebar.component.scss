@@ -1,0 +1,85 @@
+@import '../../../styles/custom-variables';
+@import '~bootstrap/scss/mixins/breakpoints';
+
+:host {
+	width: $nav-width;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+  left: 0;
+	color: #FFF;
+	background: $yams-blue;
+}
+
+
+.nav-link {
+  cursor: pointer;
+  display: block;
+  color: #FFF;
+  padding: 0;
+
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.logo {
+  display: block;
+  width: 10rem;
+}
+
+.nav-item {
+  border-bottom: 1px solid rgba(255,255,255,.2);
+  list-style-type: none;
+
+  &:first-child {
+    border-bottom: none;
+  }
+
+  .menu-icon {
+    display: inline-block;
+    width: 50px;
+    text-align: center;
+    font-size: 20px;
+    transition: all .3s ease;
+    line-height: 50px;
+    vertical-align: middle;
+  }
+
+  .submenu {
+    height: 0;
+    display: none;
+    padding: 0;
+    margin-left: 60px;
+    font-size: .9rem;
+
+    .menu-item {
+      border-bottom: none;
+      padding: 5px 15px 15px;
+    }
+  }
+
+  &.expand {
+    .submenu {
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+
+@include media-breakpoint-down(sm) {
+ 	#sidebar {
+    left : -$nav-width;
+ 	}
+ 	.main-container {
+ 	    margin-left: 0 !important;
+ 	}
+}
+.sidebar-left-zero {
+		left : 0 !important;
+}
+.main-container-ml-zero {
+	margin-left: 235px !important;
+	margin-right: -235px !important;
+}
