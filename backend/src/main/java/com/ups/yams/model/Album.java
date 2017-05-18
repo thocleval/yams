@@ -3,11 +3,13 @@ package com.ups.yams.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Document(collection = "albums")
 public class Album {
@@ -27,6 +29,12 @@ public class Album {
     private int duration;
 
     private String streamingLink;
+
+    @DBRef
+    private List<Track> tracks;
+
+    @DBRef
+    private Style style;
 
     public Album() {}
 
@@ -69,5 +77,21 @@ public class Album {
 
     public void setReleaseDate(Date releaseDate) {
         this.releaseDate = releaseDate;
+    }
+
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
+    }
+
+    public Style getStyle() {
+        return style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
     }
 }

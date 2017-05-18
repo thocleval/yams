@@ -2,9 +2,11 @@ package com.ups.yams.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Document(collection = "artists")
 public class Artist {
@@ -21,6 +23,12 @@ public class Artist {
     private String biography;
 
     private String url;
+
+    @DBRef
+    private List<Album> albums;
+
+    @DBRef
+    private Nationality nationality;
 
     public String getId() { return id; }
 
@@ -48,5 +56,21 @@ public class Artist {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public List<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(List<Album> albums) {
+        this.albums = albums;
+    }
+
+    public Nationality getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Nationality nationality) {
+        this.nationality = nationality;
     }
 }
