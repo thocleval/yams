@@ -1,9 +1,11 @@
 package com.ups.yams.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 
+@Document(collection = "styles")
 public class Style {
     @NotNull
     @NotEmpty

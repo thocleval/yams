@@ -2,10 +2,12 @@ package com.ups.yams.model;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+@Document(collection = "users")
 public class User {
 
     @NotNull

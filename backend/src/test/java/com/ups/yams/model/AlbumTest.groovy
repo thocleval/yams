@@ -40,33 +40,33 @@ class AlbumTest extends Specification {
     }
 
     @Unroll
-    void "test l'invalidite d'un album non valide"(String aName, Date aDate, int aDuration) {
+    void "test l'invalidite d'un album non valide"(String aName, Date aDate, int aDuration, String aStreamingLink) {
 
         given: "une activite initialise avec un nom vide"
-        Album album = new Album(name: aName, releaseDate: aDate, duration: aDuration)
+        Album album = new Album(name: aName, releaseDate: aDate, duration: aDuration, streamingLink: aStreamingLink)
 
         expect: "l'album est invalide"
         !validator.validate(album).empty
 
         where:
-        aName        | aDate     | aDuration
-        "AlbumName"  |new Date() | 0
-        "AlbumName"  |new Date() | -5
-        "AlbumName"  |null       | 0
-        "AlbumName"  |null       | -5
-        "AlbumName"  |null       | 180
-        ""           |new Date() | 0
-        ""           |new Date() | -5
-        ""           |new Date() | 180
-        ""           |null       | 0
-        ""           |null       | -5
-        ""           |null       | 180
-        null         |new Date() | 0
-        null         |new Date() | -5
-        null         |new Date() | 180
-        null         |null       | 0
-        null         |null       | -5
-        null         |null       | 180
+        aName        | aDate     | aDuration | aStreamingLink
+        "AlbumName"  |new Date() | 0         | "deezer.com"
+        "AlbumName"  |new Date() | -5         | "deezer.com"
+        "AlbumName"  |null       | 0         | "deezer.com"
+        "AlbumName"  |null       | -5         | "deezer.com"
+        "AlbumName"  |null       | 180         | "deezer.com"
+        ""           |new Date() | 0         | "deezer.com"
+        ""           |new Date() | -5         | "deezer.com"
+        ""           |new Date() | 180         | "deezer.com"
+        ""           |null       | 0         | "deezer.com"
+        ""           |null       | -5         | "deezer.com"
+        ""           |null       | 180         | "deezer.com"
+        null         |new Date() | 0         | "deezer.com"
+        null         |new Date() | -5         | "deezer.com"
+        null         |new Date() | 180         | "deezer.com"
+        null         |null       | 0         | "deezer.com"
+        null         |null       | -5         | "deezer.com"
+        null         |null       | 180         | "deezer.com"
     }
 
     def "test artist setters"(String aName, Date aDate, String aCoverPicture, int aDuration, String aStreamingLink) {
@@ -77,11 +77,11 @@ class AlbumTest extends Specification {
         album.getName().equals(aName)
         album.getReleaseDate().equals(aDate)
         album.getCoverPicture().equals(aCoverPicture)
-        album.getDuration() == (aDuration)
         album.getStreamingLink().equals(aStreamingLink)
+        album.getDuration() == aDuration
 
         where:
         aName        | aDate     | aCoverPicture         | aDuration     | aStreamingLink
-        "AlbumName"  |new Date() | "coverPicture.jpg"    | 180           | "deezer.com"
+        "AlbumName"  |new Date(2017, 01, 01) | "coverPicture.jpg"    | 180           | "deezer.com"
     }
 }

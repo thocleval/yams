@@ -27,7 +27,7 @@ class ArtistTest extends Specification {
 
         where:
         id      | name    | biography     | urlImage
-        "id1"   |"name1" | "bio 1"       | null
+        "id1"   |"name1"  | "bio 1"       | null
         null    | "name2" | "bio 2"       | "url"
         "id2"   | "name1" | "bio 1"       | null
         null    | "name2" | "bio 2"       | "url"

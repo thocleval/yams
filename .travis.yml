@@ -34,9 +34,12 @@ script:
   - ng test --watch=false
   - ng e2e
   - cd ..
+  - mvn install
+  - mvn clean
+  - cd backend
   - mvn cobertura:cobertura
-after_script:
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+after_script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
 cache:
   directories:

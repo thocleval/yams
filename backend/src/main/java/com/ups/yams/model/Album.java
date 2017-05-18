@@ -2,6 +2,7 @@ package com.ups.yams.model;
 
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
@@ -11,6 +12,8 @@ import java.util.Date;
 @Document(collection = "albums")
 public class Album {
 
+    @Id
+    private String id;
     @NotNull
     @NotEmpty
     private String name;
@@ -35,13 +38,6 @@ public class Album {
         this.name = name;
     }
 
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date date) {
-        this.releaseDate = date;
-    }
 
     public String getCoverPicture() {
         return coverPicture;
@@ -65,5 +61,13 @@ public class Album {
 
     public void setStreamingLink(String streamingLink) {
         this.streamingLink = streamingLink;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 }
