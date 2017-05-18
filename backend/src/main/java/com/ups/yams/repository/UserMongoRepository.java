@@ -1,6 +1,6 @@
 package com.ups.yams.repository;
 
-import com.ups.yams.model.User;
+import com.ups.yams.model.user.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 

@@ -1,4 +1,4 @@
-package com.ups.yams.model;
+package com.ups.yams.model.like;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

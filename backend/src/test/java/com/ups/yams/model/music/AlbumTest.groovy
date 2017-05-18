@@ -1,4 +1,4 @@
-package com.ups.yams.model
+package com.ups.yams.model.music
 
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -19,10 +19,10 @@ class AlbumTest extends Specification {
     @Unroll
     void "test la validite d'un album valide ayant pour nom AlbumName"(String aName, Date aDate, String aCoverPicture, int aDuration, String aStreamingLink) {
 
-        given: "un album initialise avec un nom non vide, une date, une coverPicture, une duration, un Streaming link"
+        given: "un music initialise avec un nom non vide, une date, une coverPicture, une duration, un Streaming link"
         Album album = new Album(name: aName, releaseDate: aDate, coverPicture: aCoverPicture, duration: aDuration, streamingLink: aStreamingLink)
 
-        expect: "l'album est valide"
+        expect: "l'music est valide"
         validator.validate(album).empty
 
         where:
@@ -45,7 +45,7 @@ class AlbumTest extends Specification {
         given: "une activite initialise avec un nom vide"
         Album album = new Album(name: aName, releaseDate: aDate, duration: aDuration, streamingLink: aStreamingLink)
 
-        expect: "l'album est invalide"
+        expect: "l'music est invalide"
         !validator.validate(album).empty
 
         where:
@@ -70,10 +70,10 @@ class AlbumTest extends Specification {
     }
 
     def "test artist setters"(String aName, Date aDate, String aCoverPicture, int aDuration, String aStreamingLink) {
-        given: "un album"
+        given: "un music"
         Album album = new Album(name: aName, releaseDate: aDate, coverPicture: aCoverPicture, duration: aDuration, streamingLink: aStreamingLink)
 
-        expect: "les getters de l'album renvoient les bonnes valeurs"
+        expect: "les getters de l'music renvoient les bonnes valeurs"
         album.getName().equals(aName)
         album.getReleaseDate().equals(aDate)
         album.getCoverPicture().equals(aCoverPicture)

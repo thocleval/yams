@@ -1,4 +1,4 @@
-package com.ups.yams.model;
+package com.ups.yams.model.music;
 
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;

@@ -1,4 +1,4 @@
-package com.ups.yams.model
+package com.ups.yams.model.like
 
 import spock.lang.Specification
 

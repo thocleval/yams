@@ -1,4 +1,4 @@
-package com.ups.yams.model
+package com.ups.yams.model.rating
 
 import spock.lang.Specification
 import spock.lang.Unroll

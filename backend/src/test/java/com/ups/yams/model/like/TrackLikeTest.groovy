@@ -1,4 +1,4 @@
-package com.ups.yams.model
+package com.ups.yams.model.like
 
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -7,7 +7,7 @@ import javax.validation.Validation
 import javax.validation.Validator
 import javax.validation.ValidatorFactory
 
-class AlbumLikeTest extends Specification {
+class TrackLikeTest extends Specification {
     Validator validator
 
     void setup() {
@@ -16,11 +16,11 @@ class AlbumLikeTest extends Specification {
     }
 
     @Unroll
-    void "test la validite d'un Albumlike"() {
+    void "test la validite d'un Tracklike"() {
 
         given: "un like"
         String id = "id"
-        AlbumLike like = new AlbumLike(id: id)
+        TrackLike like = new TrackLike(id: id)
 
         expect: "le like est valide"
         validator.validate(like).empty

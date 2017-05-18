@@ -1,4 +1,4 @@
-package com.ups.yams.model;
+package com.ups.yams.model.rating;
 
 import org.springframework.data.annotation.Id;
 

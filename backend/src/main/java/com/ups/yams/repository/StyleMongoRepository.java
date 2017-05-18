@@ -1,6 +1,6 @@
 package com.ups.yams.repository;
 
-import com.ups.yams.model.Style;
+import com.ups.yams.model.music.Style;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 

@@ -1,5 +1,7 @@
-package com.ups.yams.model;
+package com.ups.yams.model.user;
 
+import com.ups.yams.model.like.Like;
+import com.ups.yams.model.rating.Rating;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
