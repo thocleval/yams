@@ -1,12 +1,15 @@
 package com.ups.yams.model.music;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 
 @Document(collection = "styles")
 public class Style {
+    @Id
+    private String id;
     @NotNull
     @NotEmpty
     private String name;
