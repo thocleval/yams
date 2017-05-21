@@ -1,5 +1,6 @@
 package com.ups.yams.model.like
 
+import com.ups.yams.model.music.Track
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -16,13 +17,43 @@ class TrackLikeTest extends Specification {
     }
 
     @Unroll
-    void "test la validite d'un Tracklike"() {
+    void "test la validite d'un Tracklike"(String id, Track track) {
 
         given: "un like"
-        String id = "id"
-        TrackLike like = new TrackLike(id: id)
+        TrackLike like = new TrackLike(id: id, track: track)
 
         expect: "le like est valide"
         validator.validate(like).empty
+
+        where:
+        id      | track
+        "id"    | Mock(Track)
+    }
+
+    @Unroll
+    void "test l'invalidite d'un Tracklike"(String id, Track track) {
+
+        given: "un like"
+        TrackLike like = new TrackLike(id: id, track: track)
+
+        expect: "le like est valide"
+        !validator.validate(like).empty
+
+        where:
+        id      | track
+        "id"    | null
+    }
+
+    def "test trackLike getters"(String id, Track track) {
+        given: "un like"
+        TrackLike like = new TrackLike(id: id, track: track)
+
+        expect: "les getters d'un trackLike renvoient les bonnes valeurs"
+        like.getId().equals(id)
+        like.getTrack() == track
+
+        where:
+        id      | track
+        "id"    | Mock(Track)
     }
 }

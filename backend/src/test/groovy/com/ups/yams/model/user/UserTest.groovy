@@ -18,19 +18,20 @@ class UserTest extends Specification {
     }
 
     @Unroll
-    void "test la validite d'un user valide ayant pour nom UserName"(String name, String email, String password, String profilePicture) {
+    void "test la validite d'un user valide ayant pour nom UserName"(String name, String email, String password, String profilePicture, List likes, List ratings) {
 
         given: "un user initialise avec un nom non vide, une date, une coverPicture, une duration, un Streaming link"
-        User user = new User(name: name, email: email, password: password, profilePicture: profilePicture)
+        User user = new User(name: name, email: email, password: password, profilePicture: profilePicture, likes: likes, ratings: ratings)
 
         expect: "l'user est valide"
         validator.validate(user).empty
 
         where:
-        name        | email          | password         | profilePicture
-        "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
-        "UserName"  |"user@name.com" | "password123"    | ""
-        "UserName"  |"user@name.com" | "password123"    | null
+        name        | email          | password         | profilePicture    | likes         | ratings
+        "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg" | Mock(List)    | Mock(List)
+        "UserName"  |"user@name.com" | "password123"    | ""                | Mock(List)    | null
+        "UserName"  |"user@name.com" | "password123"    | null              | null          | Mock(List)
+        "UserName"  |"user@name.com" | "password123"    | null              | null          | null
 
     }
 
@@ -57,18 +58,20 @@ class UserTest extends Specification {
         "UserName"  |"user@name.com" | "12345678898765"
     }
 
-    def "test artist setters"(String name, String email, String password, String profilePicture) {
+    def "test artist setters"(String name, String email, String password, String profilePicture, List likes, List ratings) {
         given: "un user"
-        User user = new User(name: name, email: email, password: password, profilePicture: profilePicture)
+        User user = new User(name: name, email: email, password: password, profilePicture: profilePicture, likes: likes, ratings: ratings)
 
         expect: "les getters de l'user renvoient les bonnes valeurs"
         user.getName().equals(name)
         user.getEmail().equals(email)
         user.getPassword().equals(password)
         user.getProfilePicture().equals(profilePicture)
+        user.getLikes() == likes
+        user.getRatings() == ratings
 
         where:
-        name        | email          | password         | profilePicture
-        "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+        name        | email          | password         | profilePicture    | likes         | ratings
+        "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg" | Mock(List)    | Mock(List)
     }
 }

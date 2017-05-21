@@ -11,8 +11,8 @@ class RatingTest extends Specification {
     Validator validator
 
     void setup() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory()
+        validator = factory.getValidator()
     }
 
     @Unroll
