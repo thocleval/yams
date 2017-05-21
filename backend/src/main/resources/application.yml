@@ -5,6 +5,8 @@ spring:
       database: yams
       host: localhost
       port: 27017
+    rest:
+      base-path: /api
 
 ---
 
@@ -15,12 +17,16 @@ spring:
       database: yams-test
       host: localhost
       port: 27017
+    rest:
+      base-path: /api
 
 ---
 
 spring:
   profiles: production
   data:
+    rest:
+      base-path: /api
     mongodb:
       database: ${MONGO_DATABASE}
       port: ${MONGO_PORT}

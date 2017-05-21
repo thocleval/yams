@@ -1,16 +1,21 @@
-package com.ups.yams.model;
+package com.ups.yams.model.music;
 
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
+import java.util.List;
 
 @Document(collection = "albums")
 public class Album {
 
+    @Id
+    private String id;
     @NotNull
     @NotEmpty
     private String name;
@@ -25,6 +30,12 @@ public class Album {
 
     private String streamingLink;
 
+    @DBRef
+    private List<Track> tracks;
+
+    @DBRef
+    private Style style;
+
     public Album() {}
 
     public String getName() {
@@ -35,13 +46,6 @@ public class Album {
         this.name = name;
     }
 
-    public Date getReleaseDate() {
-        return releaseDate;
-    }
-
-    public void setReleaseDate(Date date) {
-        this.releaseDate = date;
-    }
 
     public String getCoverPicture() {
         return coverPicture;
@@ -65,5 +69,29 @@ public class Album {
 
     public void setStreamingLink(String streamingLink) {
         this.streamingLink = streamingLink;
+    }
+
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public List<Track> getTracks() {
+        return tracks;
+    }
+
+    public void setTracks(List<Track> tracks) {
+        this.tracks = tracks;
+    }
+
+    public Style getStyle() {
+        return style;
+    }
+
+    public void setStyle(Style style) {
+        this.style = style;
     }
 }
