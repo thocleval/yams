@@ -22,7 +22,9 @@ public class Artist {
     @NotEmpty
     private String biography;
 
-    private String url;
+    private String avatar;
+
+    private String cover;
 
     @DBRef
     private List<Album> albums;
@@ -50,12 +52,20 @@ public class Artist {
         this.biography = biography;
     }
 
-    public String getUrl() {
-        return url;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public List<Album> getAlbums() {
