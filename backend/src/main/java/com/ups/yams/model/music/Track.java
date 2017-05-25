@@ -52,4 +52,7 @@ public class Track {
         return id;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
 }

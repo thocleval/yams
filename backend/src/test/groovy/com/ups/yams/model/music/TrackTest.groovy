@@ -49,17 +49,18 @@ class TrackTest extends Specification {
 
     }
 
-    def "test track getters"(String name, int trackNumber, int duration) {
+    def "test track getters"(String id, String name, int trackNumber, int duration) {
         given: "un track"
-        Track track = new Track(name: name, trackNumber: trackNumber, duration: duration)
+        Track track = new Track(id: id, name: name, trackNumber: trackNumber, duration: duration)
 
         expect: "les getters de l'track renvoient les bonnes valeurs"
         track.getName().equals(name)
         track.getTrackNumber() == trackNumber
         track.getDuration() == duration
+        track.getId() == id
 
         where:
-        name    | trackNumber   | duration
-        "title" | 3             | 300
+        id      | name    | trackNumber   | duration
+        "id"    | "title" | 3             | 300
     }
 }
