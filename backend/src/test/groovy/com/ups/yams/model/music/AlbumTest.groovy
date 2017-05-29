@@ -69,11 +69,12 @@ class AlbumTest extends Specification {
         null         |null       | 180         | "deezer.com"   | Mock(List)    | Mock(Style)
     }
 
-    def "test artist setters"(String aName, Date aDate, String aCoverPicture, int aDuration, String aStreamingLink, List tracks, Style style) {
+    def "test artist setters"(String id, String aName, Date aDate, String aCoverPicture, int aDuration, String aStreamingLink, List tracks, Style style) {
         given: "un music"
-        Album album = new Album(name: aName, releaseDate: aDate, coverPicture: aCoverPicture, duration: aDuration, streamingLink: aStreamingLink, tracks: tracks, style: style)
+        Album album = new Album(id: id, name: aName, releaseDate: aDate, coverPicture: aCoverPicture, duration: aDuration, streamingLink: aStreamingLink, tracks: tracks, style: style)
 
         expect: "les getters de l'music renvoient les bonnes valeurs"
+        album.getId().equals(id)
         album.getName().equals(aName)
         album.getReleaseDate().equals(aDate)
         album.getCoverPicture().equals(aCoverPicture)
@@ -83,7 +84,7 @@ class AlbumTest extends Specification {
         album.getStyle() == style
 
         where:
-        aName        | aDate                            | aCoverPicture         | aDuration     | aStreamingLink  | tracks        | style
-        "AlbumName"  | new Date(2017, 01, 01) | "coverPicture.jpg"    | 180           | "deezer.com"    | Mock(List)    | Mock(Style)
+        id          | aName        | aDate                            | aCoverPicture         | aDuration     | aStreamingLink  | tracks        | style
+        "id"        | "AlbumName"  | new Date(2017, 01, 01) | "coverPicture.jpg"    | 180           | "deezer.com"    | Mock(List)    | Mock(Style)
     }
 }

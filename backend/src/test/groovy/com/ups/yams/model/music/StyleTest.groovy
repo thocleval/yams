@@ -51,16 +51,16 @@ class StyleTest extends Specification {
 
     }
 
-    def "test style getters"(String name, String description) {
+    def "test style getters"(String id, String name, String description) {
         given: "un style"
-        Style style = new Style(name: name, description: description)
+        Style style = new Style(id: id, name: name, description: description)
 
         expect: "les getters de l'style renvoient les bonnes valeurs"
         style.getName().equals(name)
         style.getDescription().equals(description)
 
         where:
-        name    | description
-        "name1" | "bio 1"
+        id      | name    | description
+        "id"    | "name1" | "bio 1"
     }
 }
