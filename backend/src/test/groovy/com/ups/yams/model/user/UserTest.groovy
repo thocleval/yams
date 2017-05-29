@@ -76,4 +76,106 @@ class UserTest extends Specification {
         id          | name        | email          | password         | profilePicture    | likes         | ratings
         "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg" | Mock(List)    | Mock(List)
     }
+
+    def "test remove TrackRating"(String id, String name, String email, String password, String profilePicture) { given: "un user"
+        ArrayList<Track> ratings = new ArrayList<>()
+        Track track = Mock(Track)
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
+        user.rate(track, 5)
+        user.unRate(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        ratings.size() == 0
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test remove empty TrackRating"(String id, String name, String email, String password, String profilePicture) {
+        given: "un user"
+        ArrayList<Track> ratings = new ArrayList<>()
+        Track track = Mock(Track)
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
+        user.unRate(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        ratings.size() == 0
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test add TrackRating"(String id, String name, String email, String password, String profilePicture) {
+        given: "un user"
+        ArrayList<Track> ratings = new ArrayList<>()
+        Track track = Mock(Track)
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
+        user.rate(track, 5)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        ratings.size() == 1
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test remove Like"(String id, String name, String email, String password, String profilePicture) { given: "un user"
+    ArrayList<Track> likes = new ArrayList<>()
+    Track track = Mock(Track)
+
+    User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
+    user.like(track)
+    user.unLike(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        likes.size() == 0
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test remove empty Likes"(String id, String name, String email, String password, String profilePicture) {
+        given: "un user"
+        ArrayList<Track> likes = new ArrayList<>()
+        Track track = Mock(Track)
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
+        user.unLike(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        likes.size() == 0
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test add Like"(String id, String name, String email, String password, String profilePicture) {
+        given: "un user"
+        ArrayList<Track> likes = new ArrayList<>()
+        Track track = Mock(Track)
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
+        user.like(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        likes.size() == 1
+
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
 }
