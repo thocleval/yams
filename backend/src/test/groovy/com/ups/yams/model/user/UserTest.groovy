@@ -58,11 +58,12 @@ class UserTest extends Specification {
         "UserName"  |"user@name.com" | "12345678898765"
     }
 
-    def "test artist setters"(String name, String email, String password, String profilePicture, List likes, List ratings) {
+    def "test user setters"(String id, String name, String email, String password, String profilePicture, List likes, List ratings) {
         given: "un user"
-        User user = new User(name: name, email: email, password: password, profilePicture: profilePicture, likes: likes, ratings: ratings)
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes, ratings: ratings)
 
         expect: "les getters de l'user renvoient les bonnes valeurs"
+        user.getId().equals(id)
         user.getName().equals(name)
         user.getEmail().equals(email)
         user.getPassword().equals(password)
@@ -71,7 +72,7 @@ class UserTest extends Specification {
         user.getRatings() == ratings
 
         where:
-        name        | email          | password         | profilePicture    | likes         | ratings
-        "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg" | Mock(List)    | Mock(List)
+        id          | name        | email          | password         | profilePicture    | likes         | ratings
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg" | Mock(List)    | Mock(List)
     }
 }
