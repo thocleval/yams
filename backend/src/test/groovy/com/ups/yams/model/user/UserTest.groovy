@@ -1,5 +1,6 @@
 package com.ups.yams.model.user
 
+import com.ups.yams.model.music.Track
 import spock.lang.Specification
 import spock.lang.Unroll
 
