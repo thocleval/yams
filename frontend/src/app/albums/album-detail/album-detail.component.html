@@ -22,5 +22,5 @@
 </app-page-header>
 
 <div class="wrapper albums-container animate" *ngIf="album">
-  <app-track-list [tracks]="album.tracks"></app-track-list>
+  <app-track-list [album]="album.album"></app-track-list>
 </div>

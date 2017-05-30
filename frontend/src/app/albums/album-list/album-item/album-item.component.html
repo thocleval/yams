@@ -1,4 +1,4 @@
 <a [routerLink]="['/albums', album.id]" class="album-cover-picture mb-2" [style.backgroundImage]="'url(' + album.coverPicture + ')'"></a>
 <h5 class="album-name"><a [routerLink]="['/albums', album.id]" >{{album.name}}</a></h5>
-<p>{{album.tracks.length}} titres - {{album.likeCount}} favoris</p>
+<p>{{album.album.length}} titres - {{album.likeCount}} favoris</p>
 

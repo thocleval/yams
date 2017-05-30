@@ -20,7 +20,7 @@ export class AlbumDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.service.getAlbumById(params['id']))
+      .switchMap((params: Params) => this.service.getOneById(params['id']))
       .subscribe((album: Album) => this.album = album);
   }
 

@@ -1,31 +1,29 @@
-import { ARTISTS } from './../../mock-artists';
+import { Http } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import { ApiService } from './../../shared/api.service';
 import { Artist } from './artist';
 import { Injectable } from '@angular/core';
+
+import { ApiInterface } from '../../shared/api-interface';
 
 import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
-export class ArtistService {
+export class ArtistService implements ApiInterface<Artist> {
   artistsUrl = 'api/artist/';
+  private apiService: ApiService<Artist>;
 
-  constructor() { }
-
-  getArtistById(id: string): Promise<Artist> {
-    return this.getArtists()
-      .then(artists => artists.find(artist => artist.id === id));
+  constructor(http: Http) {
+    this.apiService = new ApiService(http, '/artists');
   }
 
-  getArtists(): Promise<Artist[]> {
-    // return this.http.get(this.artistsUrl)
-    //            .toPromise()
-    //            .then(response => response.json().data as Artist[])
-    //            .catch(this.handleError);
-    return Promise.resolve(ARTISTS);
-  }
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
+  getOneById(id: string): Observable<Artist> {
+    return this.apiService.getOneById(id);
   }
 
+  getMany(params): Observable<Artist[]> {
+    return this.apiService.getMany(params)
+      .map(data => data.artists);
+  }
 }
