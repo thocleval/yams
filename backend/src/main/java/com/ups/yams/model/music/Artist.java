@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "artists")
@@ -27,7 +28,7 @@ public class Artist {
     private String cover;
 
     @DBRef
-    private List<Album> albums;
+    private List<Album> albums = new ArrayList<>();
 
     @DBRef
     private Nationality nationality;

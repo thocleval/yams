@@ -2,7 +2,6 @@ package com.ups.yams;
 
 import com.ups.yams.model.music.Artist;
 import com.ups.yams.model.music.Album;
-import com.ups.yams.model.music.Artist;
 import com.ups.yams.model.music.Track;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
