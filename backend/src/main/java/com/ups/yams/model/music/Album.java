@@ -94,4 +94,12 @@ public class Album {
     public void setStyle(Style style) {
         this.style = style;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
