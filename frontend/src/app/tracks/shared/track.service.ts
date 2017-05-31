@@ -1,29 +1,33 @@
+import { ApiHelperService } from './../../shared/api-helper.service';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { ApiService } from './../../shared/api.service';
 import { Track } from './track';
 import { Injectable } from '@angular/core';
-
-import { ApiInterface } from '../../shared/api-interface';
 
 import 'rxjs/add/operator/toPromise';
 
 
 @Injectable()
-export class TrackService implements ApiInterface<Track> {
-  tracksUrl = 'api/track/';
-  private apiService: ApiService<Track>;
+export class TrackService extends ApiHelperService {
+  apiUrl = 'tracks/';
 
   constructor(http: Http) {
-    this.apiService = new ApiService(http, '/tracks');
+    super(http);
   }
 
-  getOneById(id: string): Observable<Track> {
-    return this.apiService.getOneById(id);
+  getOneById(id: string): Promise<Track> {
+    return this.get(this.apiUrl + id);
   }
 
-  getMany(params): Observable<Track[]> {
-    return this.apiService.getMany(params)
-      .map(data => data.tracks);
+  getMany(params = {}): Promise<Track[]> {
+    return this.get(this.apiUrl, params)
+      .then(data => data._embedded.tracks)
+      .catch(error => console.error(error));
+  }
+
+
+  getManyByAlbum(albumId): Promise<Track[]> {
+    return this.get('/albums/' + albumId + '/' + this.apiUrl)
+      .then(data => data._embedded.tracks)
+      .catch(error => console.error(error));
   }
 }

@@ -23,10 +23,11 @@ export class ArtistsPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.service.getMany({})
-      .subscribe(
-      (artists) => this.artists = artists,
-      error => this.errorMessage = <any>error);
+    this.service.getMany()
+      .then(
+        artists => this.artists = artists,
+        error => this.errorMessage = <any>error
+      );
   }
 
 }

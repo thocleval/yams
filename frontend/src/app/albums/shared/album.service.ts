@@ -1,32 +1,31 @@
+import { ApiHelperService } from './../../shared/api-helper.service';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import { ApiService } from './../../shared/api.service';
 import { Album } from './album';
 import { Injectable } from '@angular/core';
 
-import { ApiInterface } from '../../shared/api-interface';
-
-import 'rxjs/add/operator/toPromise';
-
 
 @Injectable()
-export class AlbumService implements ApiInterface<Album> {
-  albumsUrl = 'api/album/';
-  private apiService: ApiService<Album>;
+export class AlbumService extends ApiHelperService {
+  apiUrl = 'albums/';
 
   constructor(http: Http) {
-    this.apiService = new ApiService(http, '/albums');
+    super(http);
   }
 
-  getOneById(id: string): Observable<Album> {
-    return this.apiService.getOneById(id);
+  getOneById(id: string): Promise<Album> {
+    return this.get(this.apiUrl + id)
+      .catch(error => console.error(error));
   }
 
-  getMany(params): Observable<Album[]> {
-    return this.apiService.getMany(params)
-      .map(data => {
-        console.log(data);
-        return data.albums;
-      });
+  getMany(params = {}): Promise<Album[]> {
+    return this.get(this.apiUrl, params)
+      .then(data => data._embedded.albums)
+      .catch(error => console.error(error));
+  }
+
+  getManyByArtist(artistId): Promise<Album[]> {
+    return this.get('/artists/' + artistId + '/' + this.apiUrl)
+      .then(data => data._embedded.albums)
+      .catch(error => console.error(error));
   }
 }

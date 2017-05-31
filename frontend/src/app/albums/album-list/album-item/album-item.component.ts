@@ -17,10 +17,9 @@ export class AlbumItemComponent implements OnInit {
   constructor(private trackService: TrackService) { }
 
   ngOnInit() {
-    console.log(this.album);
     this.album.tracks = [];
-    this.trackService.getMany({ album: this.album.id })
-      .subscribe(tracks => this.album.tracks = tracks);
+    this.trackService.getManyByAlbum( this.album.id )
+      .then(tracks => this.album.tracks = tracks);
   }
 
 }

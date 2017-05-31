@@ -1,4 +1,3 @@
-import { HomeRoutes } from './home/home.routing';
 import { ArtistsRoutes } from './artists/artists.routing';
 import { AlbumsRoutes } from './albums/albums.routing';
 import { AuthenticationRoutes } from './authentication/authentication.routing';
@@ -10,5 +9,4 @@ export const routes: Routes = [
   ...ErrorsRoutes,
   ...AlbumsRoutes,
   ...ArtistsRoutes,
-  ...HomeRoutes,
 ];

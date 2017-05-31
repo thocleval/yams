@@ -1,7 +1,7 @@
-<div *ngIf="album.length !== 0">
+<div *ngIf="tracks && tracks.length !== 0">
   <table class="table table-striped" >
     <tbody>
-      <tr *ngFor="let track of album">
+      <tr *ngFor="let track of tracks">
         <th scope="row" class="number">{{track.number}}</th>
         <td class="name">{{track.name}}</td>
         <td class="duration">{{track.duration | trackDuration}}</td>
@@ -19,7 +19,7 @@
   </table>
 </div>
 
-<div *ngIf="album.length === 0">
+<div *ngIf="tracks.length === 0">
   <p>Il n'y a actuellement aucun morceau dans cet album</p>
 </div>
 

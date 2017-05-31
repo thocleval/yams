@@ -14,7 +14,7 @@ export class ArtistListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.artists);
+
   }
 
 }

@@ -1,3 +1,4 @@
+import { AlbumsRoutes } from './../albums/albums.routing';
 import { ArtistsPageComponent } from './artists-page/artists-page.component';
 import { ArtistDetailComponent } from './artist-detail/artist-detail.component';
 import { ArtistListComponent } from './artist-list/artist-list.component';
@@ -9,7 +10,12 @@ export const ArtistsRoutes: Route[] = [
     component: ArtistsPageComponent
   },
   {
-    path: 'artists/:id',
+    path: 'artists/:artistId',
     component: ArtistDetailComponent
   },
+  {
+    path: '',
+    redirectTo: '/artits',
+    pathMatch: 'full'
+  }
 ];

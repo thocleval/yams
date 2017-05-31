@@ -1,6 +1,6 @@
-<div class="row" *ngIf="albums.length !== 0">
+<div class="row" *ngIf="albums && albums.length !== 0">
   <app-album-item *ngFor="let album of albums" [album]="album" class="col-md-3 col-sm-6 mb-3"></app-album-item>
 </div>
-<div *ngIf="albums.length === 0">
+<div *ngIf="! albums || albums.length === 0">
   <p>Il n'y a actuellement aucun album.</p>
 </div>

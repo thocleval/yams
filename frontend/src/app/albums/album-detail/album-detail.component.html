@@ -1,4 +1,4 @@
-<app-page-header *ngIf="album" [backgroundImage]="album.coverPicture">
+<app-page-header *ngIf="album && album.artist && album.tracks" [backgroundImage]="album.coverPicture">
   <img class="album-cover mr-5" [src]="album.coverPicture" alt="{{album.name}}'s picture'">
   <div class="text">
     <h1 class="display-3">{{album.name}}</h1>
@@ -16,11 +16,11 @@
         (click)="onFavClick()">
         <i class="fa fa-heart"></i>
       </button>
-      <small>Aimé par {{album.likeCount}} personnes</small>
+      <small *ngIf="album.likeCount">Aimé par {{album.likeCount}} personnes</small>
     </p>
   </div>
 </app-page-header>
 
-<div class="wrapper albums-container animate" *ngIf="album">
-  <app-track-list [album]="album.album"></app-track-list>
+<div class="wrapper albums-container animate" *ngIf="album && album.artist && album.tracks">
+  <app-track-list [tracks]="album.tracks"></app-track-list>
 </div>

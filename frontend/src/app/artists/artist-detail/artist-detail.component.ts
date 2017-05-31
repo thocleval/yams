@@ -1,11 +1,9 @@
 import { AlbumService } from './../../albums/shared/album.service';
 import { Album } from './../../albums/shared/album';
 import { Http } from '@angular/http';
-import { ApiService } from './../../shared/api.service';
 import { ArtistService } from './../shared/artist.service';
 import { Artist } from './../shared/artist';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/switchMap';
 
@@ -31,15 +29,13 @@ export class ArtistDetailComponent implements OnInit {
   ngOnInit() {
     this.route.params
       // (+) converts string 'id' to a number
-      .switchMap((params: Params) => this.artistService.getOneById(params['id']))
+      .switchMap((params: Params) => this.artistService.getOneById(params['artistId']))
       .subscribe((artist: Artist) => {
         this.artist = artist;
-        this.artist.albums = [];
-        return this.albumService.getMany({artist: this.artist.id})
-        .subscribe(albums => {
-          console.log(albums);
-          this.artist.albums = albums
-        })
+        return this.albumService.getManyByArtist(this.artist.id)
+          .then(albums => {
+            this.artist.albums = albums;
+          });
       });
   }
 
