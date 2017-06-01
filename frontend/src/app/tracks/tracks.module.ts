@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TrackDurationPipe } from './shared/track-duration.pipe';
 import { NgModule } from '@angular/core';
@@ -8,6 +9,7 @@ import { TrackListComponent } from './track-list/track-list.component';
   imports: [
     CommonModule,
     NgbModule,
+    HttpModule,
   ],
   declarations: [
     TrackListComponent,

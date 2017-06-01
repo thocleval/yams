@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TracksModule } from './../tracks/tracks.module';
 import { CoreModule } from './../core/core.module';
@@ -15,6 +16,7 @@ import { CommonModule } from '@angular/common';
     CoreModule,
     TracksModule,
     NgbModule,
+    HttpModule,
   ],
   declarations: [
     AlbumListComponent,

@@ -1,5 +1,5 @@
+import { TRACKS } from './../../mock-tracks';
 import { TrackDurationPipe } from './../shared/track-duration.pipe';
-import { MOCK_SINGLE_ALBUM } from './../../albums/shared/mock-single-album';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -27,7 +27,7 @@ describe('TrackListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(TrackListComponent);
     component = fixture.componentInstance;
-    component.tracks = MOCK_SINGLE_ALBUM.tracks;
+    component.tracks = TRACKS;
     fixture.detectChanges();
   });
 

@@ -8,7 +8,7 @@ export const AlbumsRoutes: Route[] = [
     component: AlbumListComponent
   },
   {
-    path: 'albums/:id',
+    path: 'artists/:artistId/albums/:albumId',
     component: AlbumDetailComponent
   },
 ];

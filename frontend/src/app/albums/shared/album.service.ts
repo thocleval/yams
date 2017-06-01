@@ -1,32 +1,31 @@
-import { ALBUMS } from './../../mock-albums';
+import { ApiHelperService } from './../../shared/api-helper.service';
+import { Http } from '@angular/http';
 import { Album } from './album';
 import { Injectable } from '@angular/core';
 
-import 'rxjs/add/operator/toPromise';
-
 
 @Injectable()
-export class AlbumService {
-  albumsUrl = 'api/album/';
+export class AlbumService extends ApiHelperService {
+  apiUrl = 'albums/';
 
-  constructor() { }
-
-  getAlbumById(id: string): Promise<Album> {
-    console.log(id);
-    return this.getAlbums()
-      .then(albums => albums.find(album => album.id === id));
+  constructor(http: Http) {
+    super(http);
   }
 
-  getAlbums(): Promise<Album[]> {
-    // return this.http.get(this.albumsUrl)
-    //            .toPromise()
-    //            .then(response => response.json().data as album[])
-    //            .catch(this.handleError);
-    return Promise.resolve(ALBUMS);
-  }
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
+  getOneById(id: string): Promise<Album> {
+    return this.get(this.apiUrl + id)
+      .catch(error => console.error(error));
   }
 
+  getMany(params = {}): Promise<Album[]> {
+    return this.get(this.apiUrl, params)
+      .then(data => data._embedded.albums)
+      .catch(error => console.error(error));
+  }
+
+  getManyByArtist(artistId): Promise<Album[]> {
+    return this.get('/artists/' + artistId + '/' + this.apiUrl)
+      .then(data => data._embedded.albums)
+      .catch(error => console.error(error));
+  }
 }

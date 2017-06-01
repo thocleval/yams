@@ -37,12 +37,12 @@ export class AuthenticationComponent implements OnInit {
 
   onLogin() {
     console.log(this.model);
-    this.router.navigate(['']);
+    this.router.navigate(['artists']);
   }
 
   onRegister() {
     console.log(this.model);
-    this.router.navigate(['']);
+    this.router.navigate(['artists']);
   }
 
 }

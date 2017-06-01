@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 import { CoreModule } from './../core/core.module';
 import { RouterModule } from '@angular/router';
 import { AlbumsModule } from './../albums/albums.module';
@@ -14,6 +15,7 @@ import { ArtistsPageComponent } from './artists-page/artists-page.component';
     RouterModule,
     AlbumsModule,
     CoreModule,
+    HttpModule,
   ],
   declarations: [
     ArtistDetailComponent,

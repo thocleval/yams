@@ -6,6 +6,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Document(collection = "artists")
@@ -22,10 +23,12 @@ public class Artist {
     @NotEmpty
     private String biography;
 
-    private String url;
+    private String avatar;
+
+    private String cover;
 
     @DBRef
-    private List<Album> albums;
+    private List<Album> albums = new ArrayList<>();
 
     @DBRef
     private Nationality nationality;
@@ -50,12 +53,20 @@ public class Artist {
         this.biography = biography;
     }
 
-    public String getUrl() {
-        return url;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 
     public List<Album> getAlbums() {

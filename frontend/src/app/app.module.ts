@@ -1,6 +1,5 @@
 import { AlbumsModule } from './albums/albums.module';
 import { ArtistsModule } from './artists/artists.module';
-import { HomeModule } from './home/home.module';
 import { ErrorModule } from './errors/errors.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -29,7 +28,6 @@ import { routes } from './app.routing';
     CoreModule,
     AuthenticationModule,
     ErrorModule,
-    HomeModule,
     ArtistsModule,
     AlbumsModule,
   ],

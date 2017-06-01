@@ -96,7 +96,8 @@
 						</ignores>
 						<excludes>
 							<exclude>**/BackendApplication.class</exclude>
-                        </excludes>
+							<exclude>**/GlobalRepositoryRestConfigurer.class</exclude>
+						</excludes>
 					</instrumentation>
 					<formats>
 						<format>html</format>

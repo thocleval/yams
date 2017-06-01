@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class Album {
     private String streamingLink;
 
     @DBRef
-    private List<Track> tracks;
+    private List<Track> tracks = new ArrayList<>();
 
     @DBRef
     private Style style;

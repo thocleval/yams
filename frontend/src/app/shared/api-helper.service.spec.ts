@@ -1,14 +1,14 @@
+import { MockBackend } from '@angular/http/testing';
 import { Http, BaseRequestOptions } from '@angular/http';
 import { TestBed, inject } from '@angular/core/testing';
-import { MockBackend, MockConnection } from '@angular/http/testing';
 
-import { AlbumService } from './album.service';
+import { ApiHelperService } from './api-helper.service';
 
-describe('AlbumService', () => {
+describe('ApiHelperService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        AlbumService,
+        ApiHelperService,
         MockBackend,
         BaseRequestOptions,
         {
@@ -23,7 +23,7 @@ describe('AlbumService', () => {
     });
   });
 
-  it('should ...', inject([AlbumService], (service: AlbumService) => {
+  it('should ...', inject([ApiHelperService], (service: ApiHelperService) => {
     expect(service).toBeTruthy();
   }));
 });
