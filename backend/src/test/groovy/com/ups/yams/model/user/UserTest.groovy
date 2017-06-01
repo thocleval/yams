@@ -1,6 +1,10 @@
 package com.ups.yams.model.user
 
+import com.ups.yams.model.like.Like
+import com.ups.yams.model.like.TrackLike
 import com.ups.yams.model.music.Track
+import com.ups.yams.model.rating.Rating
+import com.ups.yams.model.rating.TrackRating
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -78,7 +82,7 @@ class UserTest extends Specification {
     }
 
     def "test remove TrackRating"(String id, String name, String email, String password, String profilePicture) { given: "un user"
-        ArrayList<Track> ratings = new ArrayList<>()
+        ArrayList<Rating> ratings = new ArrayList<>()
         Track track = Mock(Track)
 
         User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
@@ -88,6 +92,21 @@ class UserTest extends Specification {
         expect: "les getters de l'user renvoient les bonnes valeurs"
         ratings.size() == 0
 
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
+
+    def "test remove AlbumRating"(String id, String name, String email, String password, String profilePicture) { given: "un user"
+        ArrayList<Rating> ratings = new ArrayList<>()
+        Track track = Mock(Track)
+        ratings.add(Mock(Rating))
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
+        user.unRate(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        ratings.size() == 1
 
         where:
         id          | name        | email          | password         | profilePicture
@@ -96,7 +115,7 @@ class UserTest extends Specification {
 
     def "test remove empty TrackRating"(String id, String name, String email, String password, String profilePicture) {
         given: "un user"
-        ArrayList<Track> ratings = new ArrayList<>()
+        ArrayList<Rating> ratings = new ArrayList<>()
         Track track = Mock(Track)
 
         User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
@@ -105,7 +124,6 @@ class UserTest extends Specification {
         expect: "les getters de l'user renvoient les bonnes valeurs"
         ratings.size() == 0
 
-
         where:
         id          | name        | email          | password         | profilePicture
         "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
@@ -113,7 +131,7 @@ class UserTest extends Specification {
 
     def "test add TrackRating"(String id, String name, String email, String password, String profilePicture) {
         given: "un user"
-        ArrayList<Track> ratings = new ArrayList<>()
+        ArrayList<Rating> ratings = new ArrayList<>()
         Track track = Mock(Track)
 
         User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, ratings: ratings)
@@ -122,32 +140,45 @@ class UserTest extends Specification {
         expect: "les getters de l'user renvoient les bonnes valeurs"
         ratings.size() == 1
 
-
         where:
         id          | name        | email          | password         | profilePicture
         "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
     }
 
     def "test remove Like"(String id, String name, String email, String password, String profilePicture) { given: "un user"
-    ArrayList<Track> likes = new ArrayList<>()
-    Track track = Mock(Track)
+        ArrayList<Like> likes = new ArrayList<>()
+        Track track = Mock(Track)
 
-    User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
-    user.like(track)
-    user.unLike(track)
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
+        user.like(track)
+        user.unLike(track)
 
         expect: "les getters de l'user renvoient les bonnes valeurs"
         likes.size() == 0
-
 
         where:
         id          | name        | email          | password         | profilePicture
         "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
     }
 
+    def "test remove non TrackLike"(String id, String name, String email, String password, String profilePicture) { given: "un user"
+        ArrayList<Like> likes = new ArrayList<>()
+        Track track = Mock(Track)
+        likes.add(Mock(Like))
+
+        User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
+        user.unLike(track)
+
+        expect: "les getters de l'user renvoient les bonnes valeurs"
+        likes.size() == 1
+
+        where:
+        id          | name        | email          | password         | profilePicture
+        "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
+    }
     def "test remove empty Likes"(String id, String name, String email, String password, String profilePicture) {
         given: "un user"
-        ArrayList<Track> likes = new ArrayList<>()
+        ArrayList<Like> likes = new ArrayList<>()
         Track track = Mock(Track)
 
         User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
@@ -156,7 +187,6 @@ class UserTest extends Specification {
         expect: "les getters de l'user renvoient les bonnes valeurs"
         likes.size() == 0
 
-
         where:
         id          | name        | email          | password         | profilePicture
         "id"        | "UserName"  |"user@name.com" | "password123"    | "moiALaPlage.jpg"
@@ -164,7 +194,7 @@ class UserTest extends Specification {
 
     def "test add Like"(String id, String name, String email, String password, String profilePicture) {
         given: "un user"
-        ArrayList<Track> likes = new ArrayList<>()
+        ArrayList<Like> likes = new ArrayList<>()
         Track track = Mock(Track)
 
         User user = new User(id: id, name: name, email: email, password: password, profilePicture: profilePicture, likes: likes)
@@ -172,7 +202,6 @@ class UserTest extends Specification {
 
         expect: "les getters de l'user renvoient les bonnes valeurs"
         likes.size() == 1
-
 
         where:
         id          | name        | email          | password         | profilePicture
