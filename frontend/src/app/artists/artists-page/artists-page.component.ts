@@ -1,5 +1,4 @@
 import { Http } from '@angular/http';
-import { ApiService } from './../../shared/api.service';
 import { ArtistService } from './../shared/artist.service';
 import { Artist } from './../shared/artist';
 import { Component, OnInit } from '@angular/core';

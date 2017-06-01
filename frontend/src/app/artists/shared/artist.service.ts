@@ -16,7 +16,7 @@ export class ArtistService extends ApiHelperService {
 
   getOneById(id: string): Promise<Artist> {
     return this.get(this.apiUrl + id)
-      .catch(error => console.error(error));;
+      .catch(error => console.error(error));
   }
 
   getMany(params = {}): Promise<Artist[]> {

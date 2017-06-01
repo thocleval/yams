@@ -38,7 +38,6 @@ export class AlbumDetailComponent implements OnInit {
       .then(([artist, tracks]) => {
         this.album.artist = artist;
         this.album.tracks = tracks;
-        console.log(tracks, artist)
       });
   }
 

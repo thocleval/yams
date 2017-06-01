@@ -27,10 +27,6 @@ describe('AlbumListComponent', () => {
       ],
       imports: [
         CommonModule,
-        RouterTestingModule.withRoutes([{
-          path: 'albums/:id',
-          component: DummyComponent
-        }]),
         CoreModule,
         TracksModule,
         NgbModule,
