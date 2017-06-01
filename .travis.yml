@@ -41,6 +41,7 @@ script:
   - cd backend
   - mvn cobertura:cobertura
   - bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+  - cd ..
 after_script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
   - cd ..
