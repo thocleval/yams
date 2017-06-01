@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ApiHelperService {
-  public API_ROOT = 'http://localhost:8080/api/';
+  public API_ROOT = '/api/';
   public headers: Headers;
 
   constructor(private http: Http) {

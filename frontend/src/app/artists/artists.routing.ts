@@ -15,7 +15,7 @@ export const ArtistsRoutes: Route[] = [
   },
   {
     path: '',
-    redirectTo: '/artits',
+    redirectTo: '/artists',
     pathMatch: 'full'
   }
 ];
