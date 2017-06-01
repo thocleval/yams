@@ -132,13 +132,13 @@ public class User {
     public void unLike(Track track){
         Like LikeToRemove = null;
         for(Like like: likes){
-            if(like instanceof TrackLike){
-                if(((TrackLike) like).getTrack() == track){
+            if (like instanceof TrackLike) {
+                if (((TrackLike) like).getTrack() == track) {
                     LikeToRemove = like;
                 }
             }
         }
-        if(LikeToRemove != null){
+        if (LikeToRemove != null) {
             likes.remove(LikeToRemove);
         }
     }
